@@ -33,6 +33,7 @@ async function run(): Promise<void> {
 
         const workingDir = core.getInput("working-dir") || ".";
         const pkgManager = "npm";
+        await exec.exec(`node -v`);
         console.log(
             `Force installing your site's dependencies using ${pkgManager}.`
         );
