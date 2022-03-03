@@ -25,9 +25,9 @@ async function run(): Promise<void> {
       return
     }
 
-    const pkgManager = (await ioUtil.exists('./yarn.lock')) ? 'yarn' : 'npm'
+    const pkgManager = 'npm'
     console.log(`Installing your site's dependencies using ${pkgManager}.`)
-    await exec.exec(`${pkgManager} install`)
+    await exec.exec(`${pkgManager} install --force`)
     console.log('Finished installing dependencies.')
 
     let gatsbyArgs = core.getInput('gatsby-args').split(/\s+/).filter(Boolean)
